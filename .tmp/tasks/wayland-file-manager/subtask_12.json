@@ -1,0 +1,25 @@
+{
+  "id": "wayland-file-manager-12",
+  "seq": "12",
+  "title": "Implement sidebar and navigation",
+  "status": "pending",
+  "depends_on": ["07"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Sidebar with places (home, desktop, downloads)",
+    "Breadcrumb navigation",
+    "Quick access bookmarks",
+    "Storage device listing"
+  ],
+  "deliverables": [
+    "src/gui/sidebar.rs",
+    "src/gui/breadcrumb.rs",
+    "src/gui/places.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/gui",
+  "vertical_slice": "navigation"
+}

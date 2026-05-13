@@ -1,0 +1,33 @@
+{
+  "id": "asm-file-manager-05",
+  "seq": "05",
+  "title": "Memory: Pool allocator (fixed-size slots, bitmap)",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    {
+      "path": "~/.config/opencode/context/core/standards/security-patterns.md",
+      "lines": "1-50",
+      "reason": "Memory safety patterns for allocators"
+    }
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Pool struct defined with slot size, slot count, bitmap, and memory region",
+    "pool_init(slot_size, slot_count) allocates and initializes pool",
+    "pool_alloc() finds first free slot via bitmap scan and returns pointer",
+    "pool_alloc() returns NULL when pool is full",
+    "pool_free(ptr) marks slot as free in bitmap",
+    "pool_free() validates pointer belongs to pool before freeing",
+    "Bitmap operations use efficient bit manipulation (test, set, clear)",
+    "Unit test verifies allocation, freeing, full pool, and invalid free"
+  ],
+  "deliverables": [
+    "src/memory/pool.asm",
+    "src/memory/pool_test.asm"
+  ]
+}

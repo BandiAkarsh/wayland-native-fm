@@ -1,0 +1,26 @@
+{
+  "id": "asm-file-manager-03",
+  "seq": "03",
+  "title": "Build system: Linking + binary size validation",
+  "status": "pending",
+  "depends_on": ["02"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Makefile links assembly objects with C library objects into final binary",
+    "Linked binary executes without segfault (prints hello or exits cleanly)",
+    "Binary size is measured and reported during build",
+    "Build fails with warning if binary exceeds 500KB threshold",
+    "Linker script or flags strip debug symbols and unused sections",
+    "Running 'make size-check' reports binary size and RAM estimate"
+  ],
+  "deliverables": [
+    "Makefile (updated with linking rules and size-check target)",
+    "build/fm (linked binary, < 500KB)"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-02",
+  "libraries": {
+    "wayland": {
+      "files": [
+        {
+          "filename": "wayland-dnd-protocols.md",
+          "topic": "drag and drop protocols",
+          "tech_stack": "Wayland",
+          "fetched": "2026-05-02T00:00:00Z",
+          "source": "freedesktop.org, python-wayland, pywayland, wayland-rs"
+        }
+      ]
+    }
+  }
+}

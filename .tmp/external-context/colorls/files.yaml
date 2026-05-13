@@ -1,0 +1,86 @@
+---
+source: GitHub Repository
+library: colorls
+package: colorls
+topic: file icons mapping
+fetched: 2026-05-01T00:00:00Z
+official_docs: https://github.com/athityakumar/colorls
+icon_font: Nerd Fonts (Private Use Area Unicode characters)
+---
+
+# ColorLS File Icons Mapping
+# Maps file extensions and special filenames to Nerd Font glyphs
+# These are Unicode characters in the Private Use Area (PUA)
+
+ai:           ""  # U+E7B4 - Nerd Fonts AI icon
+android:      ""  # U+E70E - Nerd Fonts Android icon
+apple:        ""  # U+F179 - Font Awesome Apple icon
+audio:        ""  # U+F001 - Font Awesome music icon
+avro:         ""  # U+E60B - Nerd Fonts Avro icon
+c:            ""  # U+E61E - Nerd Fonts C icon
+clj:          ""  # U+E768 - Nerd Fonts Clojure icon
+coffee:       ""  # U+F0F4 - Font Awesome CoffeeScript icon
+conf:         ""  # U+E615 - Nerd Fonts config icon
+cpp:          ""  # U+E61D - Nerd Fonts C++ icon
+css:          ""  # U+E749 - Nerd Fonts CSS icon
+d:            ""  # U+E7AF - Nerd Fonts D icon
+dart:         ""  # U+E718 - Nerd Fonts Dart icon
+db:           ""  # U+F0C0 - Font Awesome database icon
+diff:         ""  # U+F440 - Nerd Fonts diff icon
+doc:          ""  # U+F0C2 - Font Awesome document icon
+docker:       ""  # U+F308 - Nerd Fonts Docker icon
+ebook:        ""  # U+E70B - Nerd Fonts ebook icon
+env:          ""  # U+F462 - Nerd Fonts env icon
+epub:         ""  # U+E70A - Nerd Fonts epub icon
+erl:          ""  # U+E7B1 - Nerd Fonts Erlang icon
+file:         ""  # U+F016 - Font Awesome file icon
+font:         ""  # U+F031 - Font Awesome font icon
+gform:        ""  # U+F298 - Font Awesome Google Forms icon
+git:          ""  # U+F1D3 - Font Awesome Git icon
+go:           ""  # U+E626 - Nerd Fonts Go icon
+gruntfile.js: ""  # U+E74C - Nerd Fonts Grunt icon
+hs:           ""  # U+E777 - Nerd Fonts Haskell icon
+html:         ""  # U+F13B - Font Awesome HTML5 icon
+image:        ""  # U+F0C5 - Font Awesome image icon
+iml:          ""  # U+E7B5 - Nerd Fonts IntelliJ icon
+java:         ""  # U+E204 - Nerd Fonts Java icon
+js:           ""  # U+E74E - Nerd Fonts JavaScript icon
+json:         ""  # U+E60B - Nerd Fonts JSON icon
+jsx:          ""  # U+E7BA - Nerd Fonts JSX icon
+less:         ""  # U+E758 - Nerd Fonts Less icon
+log:          ""  # U+F0C6 - Font Awesome log icon
+lua:          ""  # U+E620 - Nerd Fonts Lua icon
+md:           ""  # U+F48A - Nerd Fonts Markdown icon
+mustache:     ""  # U+E60F - Nerd Fonts Mustache icon
+npmignore:    ""  # U+E71E - Nerd Fonts npm icon
+pdf:          ""  # U+F1C1 - Font Awesome PDF icon
+php:          ""  # U+E73D - Nerd Fonts PHP icon
+pl:           ""  # U+E769 - Nerd Fonts Perl icon
+ppt:          ""  # U+E704 - Font Awesome PowerPoint icon
+prql:         ""  # U+E706 - Nerd Fonts PRQL icon
+psd:          ""  # U+E7B8 - Nerd Fonts Photoshop icon
+py:           ""  # U+E606 - Nerd Fonts Python icon
+r:            ""  # U+F25D - Font Awesome R icon
+rb:           ""  # U+E21E - Nerd Fonts Ruby icon
+rdb:          ""  # U+E76D - Nerd Fonts RDB icon
+react:        "ﰆ"  # U+FB06 - Nerd Fonts React icon
+rss:          ""  # U+F09E - Font Awesome RSS icon
+rubydoc:      ""  # U+E73B - Nerd Fonts RubyDoc icon
+sass:         ""  # U+E603 - Nerd Fonts Sass icon
+scala:        ""  # U+E737 - Nerd Fonts Scala icon
+shell:        ""  # U+F489 - Nerd Fonts shell icon
+sqlite3:      ""  # U+E7C4 - Nerd Fonts SQLite icon
+styl:         ""  # U+E600 - Nerd Fonts Stylus icon
+tex:          ""  # U+E600 - Nerd Fonts TeX icon
+ts:           ""  # U+E628 - Nerd Fonts TypeScript icon
+twig:         ""  # U+E61C - Nerd Fonts Twig icon
+txt:          ""  # U+F01C - Font Awesome text icon
+video:        ""  # U+F03D - Font Awesome video icon
+vim:          ""  # U+E62B - Nerd Fonts Vim icon
+vue:          "﵂"  # U+FD42 - Nerd Fonts Vue icon
+windows:      ""  # U+F17A - Font Awesome Windows icon
+xls:          ""  # U+F1C3 - Font Awesome Excel icon
+xml:          ""  # U+E619 - Nerd Fonts XML icon
+yarn.lock:    ""  # U+E718 - Nerd Fonts Yarn icon
+yml:          ""  # U+F481 - Nerd Fonts YAML icon
+zip:          ""  # U+F410 - Nerd Fonts zip icon

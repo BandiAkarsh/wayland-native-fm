@@ -1,0 +1,28 @@
+{
+  "id": "asm-file-manager-18",
+  "seq": "18",
+  "title": "File System: File metadata (d_type parsing, lazy stat)",
+  "status": "pending",
+  "depends_on": ["17"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "file_entry struct defined: name, type, size, permissions, modified_time",
+    "d_type from getdents64 parsed: DT_REG, DT_DIR, DT_LNK, DT_FIFO, DT_SOCK",
+    "Lazy stat: metadata only fetched when explicitly requested",
+    "file_get_metadata(path, entry) calls stat syscall for size/permissions/time",
+    "File size formatted for display (B, KB, MB, GB)",
+    "Permissions displayed as rwxrwxrwx string",
+    "Modified time formatted as human-readable date string",
+    "Unit test verifies metadata for known file matches stat output"
+  ],
+  "deliverables": [
+    "src/fs/file_metadata.asm",
+    "src/fs/file_metadata_test.asm"
+  ]
+}

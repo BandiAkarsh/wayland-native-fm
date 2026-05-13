@@ -1,0 +1,28 @@
+{
+  "id": "asm-file-manager-23",
+  "seq": "23",
+  "title": "View: Scrollable list (virtual scrolling for large directories)",
+  "status": "pending",
+  "depends_on": ["22"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Virtual scrolling: only visible rows rendered (not all entries)",
+    "Scroll offset tracked and updated on mouse wheel / scrollbar drag",
+    "Scrollbar thumb size proportional to visible/total ratio",
+    "Scrollbar thumb position reflects current scroll offset",
+    "Keyboard arrow keys scroll list by one row",
+    "Page Up / Page Down scroll by one page (visible rows count)",
+    "Home / End keys jump to first / last entry",
+    "Performance: 10,000 entries scroll smoothly at 60 FPS"
+  ],
+  "deliverables": [
+    "src/view/scrollable_list.asm",
+    "src/view/scrollbar.asm"
+  ]
+}

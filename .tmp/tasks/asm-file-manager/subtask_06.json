@@ -1,0 +1,32 @@
+{
+  "id": "asm-file-manager-06",
+  "seq": "06",
+  "title": "Platform: Linux syscall interface (wrappers, constants)",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    {
+      "path": "~/.config/opencode/context/core/standards/security-patterns.md",
+      "lines": "1-80",
+      "reason": "Syscall security: input validation, error handling"
+    }
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "syscall macro defined using 'syscall' instruction with proper register convention",
+    "Syscall number constants defined for common operations (read, write, open, close, mmap, munmap, exit, brk)",
+    "Error handling: negative return values converted to positive errno",
+    "syscall_wrap() function provides unified interface for all syscalls",
+    "Register convention documented: rax=syscall_num, rdi/rsi/rdx/r10/r8/r9=args",
+    "Unit test verifies at least 3 syscalls (write, brk, exit) work correctly"
+  ],
+  "deliverables": [
+    "src/platform/syscall.asm",
+    "src/platform/syscall_constants.asm",
+    "src/platform/syscall_test.asm"
+  ]
+}

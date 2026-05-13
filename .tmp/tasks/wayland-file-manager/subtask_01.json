@@ -1,0 +1,27 @@
+{
+  "id": "wayland-file-manager-01",
+  "seq": "01",
+  "title": "Setup Rust project with Cargo and dependencies",
+  "status": "completed",
+  "depends_on": [],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".tmp/external-context/rust-io-uring/tokio-setup.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Cargo.toml exists with all required dependencies",
+    "Project compiles with `cargo check`",
+    "tokio runtime configured with io_uring support",
+    ".cargo/config.tomll exists with tokio_unstable flag"
+  ],
+  "deliverables": [
+    "Cargo.toml",
+    ".cargo/config.tomll",
+    "src/main.rs with basic structure"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/core",
+  "vertical_slice": "project-setup"
+}

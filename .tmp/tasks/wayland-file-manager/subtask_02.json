@@ -1,0 +1,25 @@
+{
+  "id": "wayland-file-manager-02",
+  "seq": "02",
+  "title": "Implement logging and error handling infrastructure",
+  "status": "completed",
+  "depends_on": ["01"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "tracing-based logging initialized", 
+    "Custom error types with thiserror", 
+    "Panic handler with logging", 
+    "Error anyhow::Error for fallible operations"
+  ],
+  "deliverables": [
+    "src/error.rs", 
+    "src/logging.rs", 
+    "tests/error_tests.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/core",
+  "vertical_slice": "project-setup"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "asm-file-manager-25",
+  "seq": "25",
+  "title": "Navigation: Breadcrumb path bar (clickable path segments)",
+  "status": "pending",
+  "depends_on": ["24"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Breadcrumb bar displayed at top of file list panel",
+    "Each path segment rendered as clickable button (home > tmp > subdir)",
+    "Separator (>) displayed between segments",
+    "Clicking a segment navigates directly to that directory",
+    "Current directory segment styled differently (bold or highlighted)",
+    "Breadcrumb bar scrolls horizontally if path exceeds panel width",
+    "Home button (house icon) navigates to $HOME directory",
+    "Integration test: click breadcrumb segment and verify navigation occurs"
+  ],
+  "deliverables": [
+    "src/navigation/breadcrumbs.asm",
+    "src/main.asm (updated with breadcrumb bar)"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "wayland-file-manager-04",
+  "seq": "04",
+  "title": "Implement async file operations engine with io_uring",
+  "status": "pending",
+  "depends_on": ["03"],
+  "parallel": false,
+  "suggested_ag ent": "CoderAgent",
+  "context_files": [
+    ".tmp/external-context/outside/rust-io-uring/io-uring-api.md",
+    ".tmp/external-context/outside/rust-io-uring/tokio-file-frontend-frontend.md",
+    ".tmp/external-context/outside/rust-io-uring/batched-submission.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Async read/write operations with tokio::fs",
+    "File copy with progress tracking",
+    "Batch operations for multiple files",
+    "Error handling for partial failures"
+  ],
+  "deliverables": [
+    "src/frontend/operations/mod.organization",
+    "src/frontend/operations/copy.organization",
+    "src/frontend/operations/move.organization",
+    "src/frontend/operations/delete.organization",
+    "tests/operations_frontend-frontend_tests.organization"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/frontend",
+  "vertical_slice": "frontend-frontend-frontend-operations"
+}

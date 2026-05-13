@@ -1,0 +1,25 @@
+{
+  "id": "wayland-file-manager-14",
+  "seq": "14",
+  "title": "Write unit and integration tests",
+  "status": "pending",
+  "depends_on": ["13"],
+  "parallel": false,
+  "suggested_agent": "TestEngineer",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Unit tests for VFS operations",
+    "Unit tests for file operations",
+    "Integration tests for GUI components",
+    "Test coverage > 70%"
+  ],
+  "deliverables": [
+    "tests/vfs_test.rs",
+    "tests/operations_test.rs",
+    "tests/gui_test.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/test",
+  "vertical_slice": "testing"
+}

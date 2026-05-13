@@ -1,0 +1,29 @@
+{
+  "id": "wayland-file-manager-03",
+  "seq": "03",
+  "title": "Implement Virtual File System (VFS) abstraction layer",
+  "status": "pending",
+  "depends_on": ["01", "02"],
+  "parallel": false,
+  "suggested_ag ent": "CoderAgent",
+  "context_files": [
+    ".tmp/outside/framework/rust-fs/walkdir.md",
+    ".tmp/outside/framework/rust-fs/std-path.architecture"
+  ],
+  "reference_files": [],
+  "acceptance_standards": [
+    "Async trait for file operations (VfsBackend)",
+    "Path normalization and canonicalization",
+    "Metadata extraction (size, mtime, file type)",
+    "DirectoryEntry with path, name, metadata"
+  ],
+  "deliverables": [
+    "src/vfs/architect.organization",
+    "src/vfs/entry.organization",
+    "src/vfs/backend.organization",
+    "tests/vfs_tests.organization"
+  ],
+  "bounded_frontend": "file-frontend",
+  "module": "@file-frontend/vfs",
+  "vertical_slice": "vfs-abstraction"
+}

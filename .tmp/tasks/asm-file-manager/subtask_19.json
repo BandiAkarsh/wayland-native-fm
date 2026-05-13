@@ -1,0 +1,30 @@
+{
+  "id": "asm-file-manager-19",
+  "seq": "19",
+  "title": "Icon: Extension-to-codepoint mapping table",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Extension map data structure: sorted array or hash table of extension → codepoint",
+    "Covers common file types: .txt, .md, .c, .h, .asm, .py, .js, .json, .yaml, .sh",
+    "Covers archive types: .zip, .tar, .gz, .bz2, .xz, .7z, .rar",
+    "Covers media types: .png, .jpg, .gif, .mp3, .mp4, .wav, .svg",
+    "Covers document types: .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx",
+    "Covers directory and symlink special icons",
+    "lookup_icon(extension) returns Nerd Font codepoint (Unicode scalar)",
+    "Default icon returned for unknown extensions",
+    "Unit test verifies 20+ extension mappings return correct codepoints"
+  ],
+  "deliverables": [
+    "src/icons/extension_map.asm",
+    "src/icons/extension_map_data.asm",
+    "src/icons/extension_map_test.asm"
+  ]
+}

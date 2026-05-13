@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-22",
+  "seq": "22",
+  "title": "View: File list rendering (icon + name rows in Nuklear)",
+  "status": "pending",
+  "depends_on": ["12", "18", "21"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "File list panel created with nk_group_begin() for scrollable area",
+    "Each row renders: icon glyph (16x16) + file/folder name + size + date",
+    "Icon rendered from glyph cache bitmap via Nuklear image widget",
+    "Folder entries use folder icon, file entries use extension-based icon",
+    "Selected row highlighted with distinct background color",
+    "Rows sorted: directories first (alphabetical), then files (alphabetical)",
+    "Row height consistent (24px) with proper vertical alignment",
+    "List renders 100 entries without visual artifacts or performance issues"
+  ],
+  "deliverables": [
+    "src/view/file_list.asm",
+    "src/view/file_row.asm",
+    "src/main.asm (updated with file list integration)"
+  ]
+}

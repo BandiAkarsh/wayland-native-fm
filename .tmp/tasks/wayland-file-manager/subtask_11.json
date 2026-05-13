@@ -1,0 +1,27 @@
+{
+  "id": "wayland-file-manager-11",
+  "seq": "11",
+  "title": "Implement thumbnail system with prefetching",
+  "status": "in_progress",
+"agent_id": "coder-01",
+"started_at": "2026-05-02T00:00:00Z",
+  "depends_on": ["08"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Background thumbnail loading",
+    "Image preview for common formats",
+    "Thumbnail cache with LRU eviction",
+    "Prefetch on directory scroll"
+  ],
+  "deliverables": [
+    "src/thumbnails/mod.rs",
+    "src/thumbnails/cache.rs",
+    "src/thumbnails/loader.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/gui",
+  "vertical_slice": "thumbnails"
+}

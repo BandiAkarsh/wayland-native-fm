@@ -1,0 +1,27 @@
+{
+  "id": "asm-file-manager-01",
+  "seq": "01",
+  "title": "Build system: Makefile for NASM + C libraries",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    "~/.config/opencode/context/core/workflows/feature-breakdown.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Makefile compiles NASM assembly files (.asm) to object files (.o)",
+    "Makefile supports x86_64 architecture with ELF64 output format",
+    "Makefile defines build targets: all, clean, test, size-check",
+    "Makefile sets optimization flags for minimal binary size (-Os equivalent)",
+    "Makefile defines output binary name as 'fm' or 'file-manager'",
+    "Running 'make' produces at least one object file without errors"
+  ],
+  "deliverables": [
+    "Makefile",
+    "src/main.asm (minimal entry point for build verification)"
+  ]
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  List Item UI Template for File List View
+  
+  This defines the widget layout for each row in the file list.
+  Used with GtkBuilderListItemFactory or can be loaded programmatically.
+-->
+<interface>
+  <!-- Template for a file list item row -->
+  <template class="GtkListItem" parent="GtkWidget">
+    <child>
+      <object class="GtkBox" id="list_item_box">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">8</property>
+        <property name="margin-start">6</property>
+        <property name="margin-end">6</property>
+        <property name="margin-top">4</property>
+        <property name="margin-bottom">4</property>
+        
+        <!-- File icon -->
+        <child>
+          <object class="GtkImage" id="file_icon">
+            <property name="icon-size">2</property>
+            <property name="icon-name">folder</property>
+            <property name="pixel-size">24</property>
+          </object>
+        </child>
+        
+        <!-- File name -->
+        <child>
+          <object class="GtkLabel" id="file_name">
+            <property name="label">filename.txt</property>
+            <property name="xalign">0</property>
+            <property name="hexpand">true</property>
+            <property name="ellipsize">3</property>
+          </object>
+        </child>
+        
+        <!-- File size -->
+        <child>
+          <object class="GtkLabel" id="file_size">
+            <property name="label">1.2K</property>
+            <property name="xalign">1</property>
+            <property name="width-chars">8</property>
+          </object>
+        </child>
+        
+        <!-- Modified date -->
+        <child>
+          <object class="GtkLabel" id="file_date">
+            <property name="label">2024-01-15</property>
+            <property name="xalign">1</property>
+            <property name="width-chars">12</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

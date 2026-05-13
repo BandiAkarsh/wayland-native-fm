@@ -1,0 +1,42 @@
+{
+  "id": "wayland-file-manager",
+  "name": "Wayland-Native File Manager",
+  "status": "active",
+  "objective": "Build a high-performance, Wayland-native file manager in Rust using GTK4 with io_uring, featuring async file operations, inotify watching, and native Wayland DnD",
+  "context_files": [
+    ".tmp/external-context/gtk4/gdk-wayland-integration.md",
+    ".tmp/external-context/rust-io-uring/io-uring-api.md",
+    ".tmp/external-context/rust-io-uring/tokio-setup.md",
+    ".tmp/external-context/rust-io-uring/tokio-file-operations.md",
+    ".tmp/external-context/rust-io-uring/batched-submission.md",
+    ".tmp/external-context/rust-fs/walkdir.md",
+    ".tmp/external-context/rust-fs/notify.md",
+    ".tmp/external-context/wayland/wayland-dnd-protocols.md"
+  ],
+  "reference_files": [],
+  "exit_criteria": [
+    "All 15 subtasks completed and validated",
+    "Project compiles with `cargo build`",
+    "Basic integration test passes",
+    "GTK4 Wayland window displays correctly",
+    "File listing renders with virtual scrolling",
+    "File operations (copy/move/delete) work asynchronously",
+    "inotify file watching updates directory view"
+  ],
+  "subtask_count": 15,
+  "completed_count": 8,
+  "batch_execution": {
+    "batch_1": ["01", "02"],
+    "batch_2": ["03", "04", "05", "06"],
+    "batch_3": ["07", "08"],
+    "batch_4": ["09", "10", "11", "12"],
+    "batch_5": ["13"],
+    "batch_6": ["14"],
+    "batch_7": ["15"]
+  },
+  "created_at": "2026-05-02T00:00:00Z",
+  "bounded_context": "file-manager",
+  "module": "@file-manager/wayland",
+  "vertical_slice": "wayland-native-file-manager",
+  "release_slice": "MVP"
+}

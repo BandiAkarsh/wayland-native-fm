@@ -1,0 +1,25 @@
+{
+  "id": "wayland-file-manager-13",
+  "seq": "13",
+  "title": "Implement main application integration",
+  "status": "pending",
+  "depends_on": ["10", "11", "12"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Main window with all components integrated",
+    "File operations UI (copy/move progress)",
+    "Keyboard navigation",
+    "Context menu integration"
+  ],
+  "deliverables": [
+    "src/main.rs",
+    "src/app.rs",
+    "src/commands.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/app",
+  "vertical_slice": "main-integration"
+}

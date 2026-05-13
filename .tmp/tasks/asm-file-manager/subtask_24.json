@@ -1,0 +1,35 @@
+{
+  "id": "asm-file-manager-24",
+  "seq": "24",
+  "title": "Navigation: Directory navigation (double-click, back, path tracking)",
+  "status": "pending",
+  "depends_on": ["15", "16", "23"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    {
+      "path": "~/.config/opencode/context/core/standards/security-patterns.md",
+      "lines": "1-80",
+      "reason": "Path traversal prevention, symlink resolution"
+    }
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Double-click on folder entry navigates into that directory",
+    "Back button navigates to previous directory in history",
+    "Forward button navigates forward in history (if available)",
+    "Up button navigates to parent directory",
+    "Navigation history stack maintained (max 100 entries)",
+    "Current path stored and updated on each navigation",
+    "Permission denied errors displayed as user-friendly message",
+    "Invalid paths handled gracefully (non-existent, not a directory)",
+    "Integration test: navigate /tmp → /tmp/subdir → back → /tmp"
+  ],
+  "deliverables": [
+    "src/navigation/dir_nav.asm",
+    "src/navigation/path_history.asm",
+    "src/main.asm (updated with navigation integration)"
+  ]
+}

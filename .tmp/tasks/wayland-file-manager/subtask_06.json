@@ -1,0 +1,31 @@
+{
+  "id": "wayland-file-manager-06",
+  "seq": "06",
+  "title": "Implement file watcher with inotify",
+  "status": "completed",
+  "agent_id": "coder-agent",
+  "started_at": "2026-05-02T12:00:00Z",
+  "completed_at": "2026-05-02T12:30:00Z",
+  "completion_summary": "Implemented inotify-based file watcher with debounced events (create, modify, delete, rename) using notify and notify-debouncer-mini",
+  "depends_on": ["01"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".tmp/external-context/rust-fs/notify.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "inotify-based file watching via notify crate",
+    "Event debouncing for rapid changes",
+    "Watch recursive directories",
+    "Event types: create, modify, delete, rename"
+  ],
+  "deliverables": [
+    "src/watcher/mod.rs",
+    "src/watcher/debouncer.rs",
+    "tests/watcher_tests.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/io",
+  "vertical_slice": "file-watcher"
+}

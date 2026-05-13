@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-12",
+  "seq": "12",
+  "title": "GUI: Basic widget rendering (panels, buttons, labels)",
+  "status": "pending",
+  "depends_on": ["11"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Main panel created with nk_begin() showing file manager title",
+    "Label widget displays current directory path",
+    "Button widgets for navigation (back, up, refresh)",
+    "Panel is resizable and dockable within window",
+    "Widget styling uses consistent dark theme colors",
+    "Button click events detected and handled",
+    "Panel layout adapts to window resize events",
+    "All widgets render without visual artifacts or overlap"
+  ],
+  "deliverables": [
+    "src/gui/widgets.asm",
+    "src/gui/theme.asm",
+    "src/main.asm (updated with widget demo)"
+  ]
+}

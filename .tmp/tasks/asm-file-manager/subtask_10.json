@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-10",
+  "seq": "10",
+  "title": "Graphics: sokol_gfx.h initialization (pipeline, render pass)",
+  "status": "pending",
+  "depends_on": ["09"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "sg_setup() initializes sokol_gfx with backend auto-detection",
+    "Render pass descriptor configured with default framebuffer",
+    "Graphics pipeline created with vertex/fragment shaders for 2D rendering",
+    "Vertex buffer allocated for 2D quad rendering",
+    "Clear color set (dark background for file manager theme)",
+    "sg_commit() called at end of each frame",
+    "sg_shutdown() called on cleanup",
+    "Window displays solid color background without rendering errors"
+  ],
+  "deliverables": [
+    "src/graphics/gfx_init.c",
+    "src/graphics/gfx.asm",
+    "src/graphics/shaders.glsl (2D vertex + fragment shaders)"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-16",
+  "seq": "16",
+  "title": "Input: Keyboard handler (key codes, modifiers, shortcuts)",
+  "status": "pending",
+  "depends_on": ["09"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Key down/up events captured with key code (scancode or keycode)",
+    "Modifier keys tracked (Ctrl, Shift, Alt) as bitmask",
+    "Key repeat events handled (held key generates repeated events)",
+    "Shortcut detection: Ctrl+C, Ctrl+V, Ctrl+L, Escape, Enter, Backspace",
+    "Arrow key events (Up, Down, Left, Right) for list navigation",
+    "Text input events captured for search/filter functionality",
+    "Events forwarded to Nuklear input system",
+    "Unit test verifies modifier + key combination detection"
+  ],
+  "deliverables": [
+    "src/input/keyboard.asm",
+    "src/input/shortcuts.asm",
+    "src/input/keyboard_test.asm"
+  ]
+}

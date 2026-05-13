@@ -1,0 +1,27 @@
+{
+  "id": "wayland-file-manager-09",
+  "seq": "09",
+  "title": "Implement drag and drop source (file sharing)",
+  "status": "completed",
+  "agent_id": "coder-agent",
+  "started_at": "2026-05-02T00:00:00Z",
+  "completed_at": "2026-05-02T00:00:00Z",
+  "depends_on": ["08"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "GTK drag source on file list items",
+    "wl_data_source with MIME types",
+    "File path transfer via text/uri-list",
+    "Drag icon with file preview"
+  ],
+  "deliverables": [
+    "src/gui/dnd_source.rs",
+    "src/gui/drag_icon.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/gui",
+  "vertical_slice": "dnd-source"
+}

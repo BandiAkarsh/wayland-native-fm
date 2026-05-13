@@ -1,0 +1,34 @@
+{
+  "id": "asm-file-manager-17",
+  "seq": "17",
+  "title": "File System: Directory listing (getdents64 batch read)",
+  "status": "pending",
+  "depends_on": ["07"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    {
+      "path": "~/.config/opencode/context/core/standards/security-patterns.md",
+      "lines": "1-80",
+      "reason": "Syscall security: buffer bounds, path validation"
+    }
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "dir_open(path) opens directory and returns file descriptor",
+    "dir_read(fd, buffer, size) calls getdents64 syscall with 64KB buffer",
+    "dir_entry struct defined: inode, offset, reclen, type, name",
+    "dir_parse_entries(buffer, bytes_read) iterates linux_dirent64 structures",
+    "Hidden files (starting with '.') filtered or flagged",
+    "dir_close(fd) closes directory file descriptor",
+    "Handles directories with 10,000+ entries without buffer overflow",
+    "Unit test lists /tmp entries and verifies count > 0"
+  ],
+  "deliverables": [
+    "src/fs/dir_list.asm",
+    "src/fs/dir_entry.asm",
+    "src/fs/dir_list_test.asm"
+  ]
+}

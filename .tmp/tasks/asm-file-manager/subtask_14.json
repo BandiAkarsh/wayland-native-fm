@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-14",
+  "seq": "14",
+  "title": "Font: Glyph bitmap rendering (codepoint → bitmap buffer)",
+  "status": "pending",
+  "depends_on": ["13"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "render_glyph(codepoint, size) returns bitmap buffer with glyph pixels",
+    "Bitmap format is 8-bit grayscale (alpha channel for blending)",
+    "Glyph dimensions (width, height, x-offset, y-offset) returned with bitmap",
+    "stbtt_MakeGlyphBitmap() called with correct parameters",
+    "Bitmap rendering handles multi-byte UTF-8 codepoints",
+    "Rendering performance: < 1ms per glyph at 16px size",
+    "Unit test renders known codepoint and verifies bitmap dimensions",
+    "Bitmap can be uploaded to sokol_gfx texture for GPU rendering"
+  ],
+  "deliverables": [
+    "src/font/glyph_render.c",
+    "src/font/glyph_render.asm",
+    "src/font/glyph_render_test.asm"
+  ]
+}

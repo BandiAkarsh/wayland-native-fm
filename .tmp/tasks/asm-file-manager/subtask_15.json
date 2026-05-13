@@ -1,0 +1,28 @@
+{
+  "id": "asm-file-manager-15",
+  "seq": "15",
+  "title": "Input: Mouse handler (click, double-click, drag, scroll)",
+  "status": "pending",
+  "depends_on": ["09"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Mouse position tracked (x, y) relative to window coordinates",
+    "Mouse button down/up events captured (left, right, middle)",
+    "Single click detected with position",
+    "Double-click detected within 300ms threshold",
+    "Mouse drag detected (button held + movement)",
+    "Scroll wheel events captured (delta up/down)",
+    "Events forwarded to Nuklear input system",
+    "Unit test verifies event sequence: down → up = click, down → down (<300ms) = double-click"
+  ],
+  "deliverables": [
+    "src/input/mouse.asm",
+    "src/input/mouse_test.asm"
+  ]
+}

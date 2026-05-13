@@ -1,0 +1,30 @@
+{
+  "id": "wayland-file-manager-05",
+  "seq": "05",
+  "title": "Implement directory scanner with caching",
+  "status": "completed",
+  "agent_id": "coder-agent",
+  "started_at": "2026-05-02T12:00:00Z",
+  "completed_at": "2026-05-02T12:30:00Z",
+  "depends_on": ["03"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".tmp/external-context/rust-fs/walkdir.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Recursive directory traversal with walkdir",
+    "LRU cache for directory contents",
+    "Parallel scanning for large directories",
+    "Sorting by name, size, date, type"
+  ],
+  "deliverables": [
+    "src/scanner/mod.rs",
+    "src/scanner/cache.rs",
+    "tests/scanner_tests.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/io",
+  "vertical_slice": "directory-scanner"
+}

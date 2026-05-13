@@ -1,0 +1,28 @@
+{
+  "id": "wayland-file-manager-08",
+  "seq": "08",
+  "title": "Implement file list view with virtual scrolling",
+"status": "completed",
+    "agent_id": "coder-agent",
+    "started_at": "2026-01-28T00:00:00Z",
+    "completed_at": "2026-01-28T00:00:00Z"
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "GTK ListView with virtual model",
+    "File/folder icon display",
+    "Column sorting (name, size, date)",
+    "Selection handling (single/multi)",
+    "Virtual scrolling for large directories"
+  ],
+  "deliverables": [
+    "src/gui/file_list.rs",
+    "src/gui/list_model.rs",
+    "src/gui/list_item.ui"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/gui",
+  "vertical_slice": "file-list-view"
+}

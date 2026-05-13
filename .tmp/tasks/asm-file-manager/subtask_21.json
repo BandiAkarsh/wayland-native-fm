@@ -1,0 +1,28 @@
+{
+  "id": "asm-file-manager-21",
+  "seq": "21",
+  "title": "Icon: Glyph cache (pre-rendered bitmap cache with LRU)",
+  "status": "pending",
+  "depends_on": ["14", "19"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "glyph_cache struct: entries array with codepoint, bitmap, texture, last_used",
+    "cache_init(max_entries) allocates cache with configurable size",
+    "cache_get(codepoint) returns cached bitmap or NULL if miss",
+    "cache_put(codepoint, bitmap) stores rendered glyph, evicts LRU entry if full",
+    "Cache hit rate tracked for performance monitoring",
+    "LRU eviction: least recently used entry replaced on cache full",
+    "Bitmap data stored in GPU texture (sokol_gfx image) when possible",
+    "Unit test verifies cache hit/miss behavior and LRU eviction order"
+  ],
+  "deliverables": [
+    "src/icons/glyph_cache.asm",
+    "src/icons/glyph_cache_test.asm"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "wayland-file-manager-10",
+  "seq": "10",
+  "title": "Implement drag and drop target (file receiving)",
+  "status": "pending",
+  "depends_on": ["09"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "GTK drop target on file list",
+    "wl_data_offer handling",
+    "MIME type negotiation",
+    "File receive and import",
+    "Visual drop zone feedback"
+  ],
+  "deliverables": [
+    "src/gui/dnd_target.rs",
+    "src/gui/drop_indicator.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/gui",
+  "vertical_slice": "dnd-target"
+}

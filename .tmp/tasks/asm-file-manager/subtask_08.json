@@ -1,0 +1,28 @@
+{
+  "id": "asm-file-manager-08",
+  "seq": "08",
+  "title": "Text: UTF-8 string operations (length, copy, compare)",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "str_len(str) returns byte length of null-terminated UTF-8 string",
+    "str_copy(dest, src, max_len) copies with bounds checking",
+    "str_compare(a, b) returns 0 if equal, non-zero otherwise",
+    "str_find(haystack, needle) returns pointer to first occurrence or NULL",
+    "utf8_codepoint_count(str) returns number of Unicode codepoints",
+    "utf8_decode(str) extracts first codepoint and advances pointer",
+    "All functions handle null input gracefully (return 0 or NULL)",
+    "Unit test verifies operations with ASCII and multi-byte UTF-8 strings"
+  ],
+  "deliverables": [
+    "src/text/strings.asm",
+    "src/text/strings_test.asm"
+  ]
+}

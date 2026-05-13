@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-03T12:00:00Z",
+  "libraries": {
+    "nautilus": {
+      "files": [
+        {
+          "filename": "grid-view-implementation.md",
+          "topic": "grid-view-implementation",
+          "tech_stack": "GTK4",
+          "fetched": "2026-05-03T12:00:00Z",
+          "source": "Nautilus GitHub Repository"
+        },
+        {
+          "filename": "grid-cell-implementation.md",
+          "topic": "grid-cell-implementation",
+          "tech_stack": "GTK4",
+          "fetched": "2026-05-03T12:00:00Z",
+          "source": "Nautilus GitHub Repository"
+        }
+      ]
+    },
+    "gtk4": {
+      "files": [
+        {
+          "filename": "gtk-grid-view.md",
+          "topic": "grid-view",
+          "tech_stack": "GTK4",
+          "fetched": "2026-05-03T12:00:00Z",
+          "source": "GTK4 Documentation"
+        },
+        {
+          "filename": "gtk-flowbox.md",
+          "topic": "flowbox",
+          "tech_stack": "GTK4",
+          "fetched": "2026-05-03T12:00:00Z",
+          "source": "GTK4 Documentation"
+        },
+        {
+          "filename": "gdk-wayland-integration.md",
+          "topic": "wayland-integration",
+          "tech_stack": "GTK4/GDK",
+          "fetched": "2026-01-30T10:30:00Z",
+          "source": "GTK4 Documentation"
+        }
+      ]
+    }
+  }
+}

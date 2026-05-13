@@ -1,0 +1,30 @@
+{
+  "id": "wayland-file-manager-07",
+  "seq": "07",
+  "title": "Setup GTK4 Wayland window and application",
+  "status": "completed",
+  "agent_id": "coder-agent",
+  "started_at": "2026-05-02T00:00:00Z",
+  "completed_at": "2026-05-02T00:30:00Z",
+  "depends_on": ["01", "02"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".tmp/external-context/gtk4/gdk-wayland-integration.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Native Wayland window via GDK",
+    "GTK Application with proper initialization",
+    "Wayland display connection",
+    "Window resize and close handling"
+  ],
+  "deliverables": [
+    "src/gui/window.rs",
+    "src/gui/application.rs",
+    "src/gui/wayland.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/gui",
+  "vertical_slice": "gtk4-window"
+}

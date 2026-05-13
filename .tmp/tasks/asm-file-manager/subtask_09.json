@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-09",
+  "seq": "09",
+  "title": "Window: sokol_app.h integration (window creation, frame loop)",
+  "status": "pending",
+  "depends_on": ["01"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "C wrapper file defines sokol_app.h callbacks callable from assembly",
+    "sapp_init() configures window title, width (1024), height (768)",
+    "sapp_frame_cb() called each frame from assembly main loop",
+    "sapp_event_cb() receives and forwards keyboard/mouse events",
+    "sapp_cleanup_cb() handles graceful shutdown",
+    "Assembly main() calls sapp_run() with callback struct",
+    "Window opens on Linux X11 and displays blank frame without crashing",
+    "Frame rate is stable at 60 FPS (verified via frame counter)"
+  ],
+  "deliverables": [
+    "src/window/sokol_wrapper.c",
+    "src/window/window.asm",
+    "src/main.asm (updated with window init)"
+  ]
+}

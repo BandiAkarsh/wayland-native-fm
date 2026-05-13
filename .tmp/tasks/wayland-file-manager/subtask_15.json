@@ -1,0 +1,25 @@
+{
+  "id": "wayland-file-manager-15",
+  "seq": "15",
+  "title": "Performance optimization and final validation",
+  "status": "pending",
+  "depends_on": ["14"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Memory usage < 100MB for 10k files",
+    "Startup time < 500ms",
+    "Directory scan < 1s for 10k files",
+    "Smooth 60fps scrolling"
+  ],
+  "deliverables": [
+    "Performance benchmarks",
+    "Memory profiling results",
+    "Final build verification"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/optimization",
+  "vertical_slice": "final-validation"
+}

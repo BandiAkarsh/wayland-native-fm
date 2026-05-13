@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-02",
+  "seq": "02",
+  "title": "Build system: C library compilation (Nuklear, sokol, stb_truetype)",
+  "status": "pending",
+  "depends_on": ["01"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Makefile downloads or references Nuklear single-header (nuklear.h)",
+    "Makefile downloads or references sokol headers (sokol_app.h, sokol_gfx.h)",
+    "Makefile downloads or references stb_truetype.h",
+    "C libraries compile to static library (.a) or object files (.o)",
+    "C compilation uses -fPIC for position-independent code",
+    "C compilation uses -Os for size optimization",
+    "All three libraries compile without errors on Linux x86_64"
+  ],
+  "deliverables": [
+    "Makefile (updated with C library build rules)",
+    "libs/nuklear.o or libs/nuklear.a",
+    "libs/sokol.o or libs/sokol.a",
+    "libs/stb_truetype.o or libs/stb_truetype.a"
+  ]
+}

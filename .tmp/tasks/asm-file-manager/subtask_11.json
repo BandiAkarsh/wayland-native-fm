@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-11",
+  "seq": "11",
+  "title": "GUI: Nuklear backend integration (render bridge to sokol)",
+  "status": "pending",
+  "depends_on": ["10"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Nuklear context created via nk_init_default() or nk_init_custom()",
+    "Nuklear input forwarded from sokol_app.h events to nk_input_*",
+    "Nuklear command buffer iterated and converted to sokol_gfx draw calls",
+    "nk_begin()/nk_end() frame lifecycle integrated into frame callback",
+    "Font atlas uploaded as sokol_gfx texture",
+    "Vertex/index buffers allocated for Nuklear draw commands",
+    "Nuklear renders a test panel with text visible in window",
+    "Input events (mouse move, click) update Nuklear state correctly"
+  ],
+  "deliverables": [
+    "src/gui/nuklear_backend.c",
+    "src/gui/nuklear_render.asm",
+    "src/gui/nuklear_input.asm"
+  ]
+}

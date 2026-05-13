@@ -1,0 +1,30 @@
+{
+  "id": "wayland-frontend-organization-03",
+  "seq": "03",
+  "title": "Design VFS abstraction and entry types",
+  "status": "completed",
+  "agent_id": "coder-agent",
+  "started_at": "2026-05-02T12:00:00Z",
+  "completed_at": "2026-05-02T12:30:00Z",
+  "completion_summary": "Implemented VFS abstraction with async VfsBackend trait, DirectoryEntry with path/name/metadata, path normalization/canonicalization, and metadata extraction (size, mtime, file type)"
+  "depends_on": ["01", "02"],
+  "parallel": false,
+  "suggested_agent": "ArchitectAgent",
+  "context_files": [],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Async trait for file operations (VfsBackend)",
+    "Path normalization and canonicalization",
+    "Metadata extraction (size, mtime, file type)",
+    "DirectoryEntry with path, name, metadata"
+  ],
+  "deliverables": [
+    "src/vfs/mod.rs",
+    "src/vfs/entry.rs",
+    "src/vfs/backend.rs",
+    "tests/vfs_tests.rs"
+  ],
+  "bounded_context": "file-manager",
+  "module": "@file-manager/vfs",
+  "vertical_slice": "vfs-abstraction"
+}

@@ -1,0 +1,25 @@
+---
+source: GitHub Repository
+library: colorls
+package: colorls
+topic: folder icons mapping
+fetched: 2026-05-01T00:00:00Z
+official_docs: https://github.com/athityakumar/colorls
+icon_font: Nerd Fonts (Private Use Area Unicode characters)
+---
+
+# ColorLS Folder Icons Mapping
+# Maps folder names to Nerd Font glyphs
+# These are Unicode characters in the Private Use Area (PUA)
+
+.atom:    ""  # U+E765 - Nerd Fonts Atom icon
+.git:     ""  # U+F1D3 - Font Awesome Git icon
+.github:  ""  # U+F408 - Nerd Fonts GitHub icon
+.rvm:     ""  # U+E21E - Nerd Fonts Ruby icon (for RVM)
+.Trash:   ""  # U+F1F8 - Font Awesome trash icon
+.vscode:  ""  # U+E70C - Nerd Fonts VS Code icon
+config:   ""  # U+E5FC - Nerd Fonts config folder icon
+folder:   ""  # U+F115 - Font Awesome folder icon (default)
+hidden:   ""  # U+F023 - Font Awesome lock icon (for hidden folders)
+lib:      ""  # U+F121 - Font Awesome code icon
+node_modules: ""  # U+E718 - Nerd Fonts Node.js icon

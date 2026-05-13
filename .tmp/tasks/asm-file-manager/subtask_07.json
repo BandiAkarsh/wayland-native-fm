@@ -1,0 +1,33 @@
+{
+  "id": "asm-file-manager-07",
+  "seq": "07",
+  "title": "Platform: File system syscall wrappers (getdents64, open, read)",
+  "status": "pending",
+  "depends_on": ["06"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    {
+      "path": "~/.config/opencode/context/core/standards/security-patterns.md",
+      "lines": "1-80",
+      "reason": "Syscall security: path validation, buffer bounds"
+    }
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "fs_open(path, flags) wraps open syscall with O_RDONLY | O_DIRECTORY",
+    "fs_read(fd, buffer, count) wraps read syscall",
+    "fs_close(fd) wraps close syscall",
+    "fs_getdents64(fd, buffer, count) wraps getdents64 syscall (syscall 217)",
+    "fs_stat(path, stat_buf) wraps stat or fstat syscall",
+    "All wrappers handle errors and return -errno on failure",
+    "Buffer size constants defined (64KB for getdents64 batch buffer)",
+    "Unit test verifies opening /tmp, reading entries, and closing"
+  ],
+  "deliverables": [
+    "src/platform/fs_syscalls.asm",
+    "src/platform/fs_syscalls_test.asm"
+  ]
+}

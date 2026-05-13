@@ -1,0 +1,29 @@
+{
+  "id": "asm-file-manager-13",
+  "seq": "13",
+  "title": "Font: stb_truetype initialization (Nerd Font TTF loading)",
+  "status": "pending",
+  "depends_on": ["01"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Nerd Font TTF file loaded from disk or embedded as binary data",
+    "stbtt_InitFont() parses font header and builds lookup tables",
+    "Font scale computed for target pixel height (e.g., 16px)",
+    "Glyph metrics (advance, bearing, dimensions) retrievable by codepoint",
+    "Font supports Nerd Font icon codepoints (U+E000-U+U+26FF range)",
+    "Fallback to default glyph for missing codepoints",
+    "Font loading error handled gracefully (missing file, corrupt data)",
+    "Unit test verifies font loads and returns valid metrics for test codepoint"
+  ],
+  "deliverables": [
+    "src/font/font_loader.c",
+    "src/font/font_loader.asm",
+    "fonts/nerdfont.ttf (or embedded binary)"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "asm-file-manager",
+  "name": "Cross-Platform GUI Assembly File Manager",
+  "status": "active",
+  "objective": "Build a GUI file manager in assembly with Nerd Font glyphs, targeting <500KB binary and <5MB RAM on Linux x86_64",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/standards/security-patterns.md",
+    "~/.config/opencode/context/core/standards/test-coverage.md",
+    "~/.config/opencode/context/core/standards/documentation.md",
+    "~/.config/opencode/context/core/standards/code-analysis.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    "~/.config/opencode/context/core/workflows/feature-breakdown.md",
+    "~/.config/opencode/context/core/workflows/code-review.md",
+    "~/.config/opencode/context/core/workflows/session-management.md",
+    "~/.config/opencode/context/core/context-system/standards/structure.md",
+    "~/.config/opencode/context/development/principles/clean-code.md",
+    "~/.config/opencode/context/core/task-management/navigation.md"
+  ],
+  "reference_files": [],
+  "exit_criteria": [
+    "Build system compiles assembly + Nuklear + sokol + stb_truetype into single binary",
+    "Binary size < 500KB verified",
+    "Window creation and event loop functional on Linux x86_64",
+    "Nuklear GUI rendering displays panels, buttons, and scrollable lists",
+    "stb_truetype renders Nerd Font glyphs for file type icons",
+    "Directory listing via getdents64 returns file entries correctly",
+    "File list view shows icons next to file/folder names",
+    "File type detection maps extensions to correct Nerd Font codepoints",
+    "Mouse navigation: click to select, double-click to open folders",
+    "Keyboard navigation: arrow keys, Enter, Escape, shortcuts functional",
+    "Directory navigation: double-click folder, back button, breadcrumbs",
+    "Memory usage < 5MB resident during normal operation"
+  ],
+  "subtask_count": 25,
+  "completed_count": 0,
+  "created_at": "2026-05-01T00:30:00Z"
+}

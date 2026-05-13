@@ -1,0 +1,175 @@
+---
+source: GitHub Repository
+library: colorls
+package: colorls
+topic: file extension aliases
+fetched: 2026-05-01T00:00:00Z
+official_docs: https://github.com/athityakumar/colorls
+---
+
+# ColorLS File Aliases
+# Maps additional file extensions to the main icon categories defined in files.yaml
+# Format: alias_extension: main_category
+
+# Android
+apk:              android
+
+# Build tools
+gradle:           android
+
+# Apple
+ds_store:         apple
+localized:        apple
+
+# Audio files
+flac:             audio
+m4a:              audio
+mp3:              audio
+ogg:              audio
+opus:             audio
+wav:              audio
+
+# Config files
+editorconfig:     conf
+scss:             css
+
+# Documents
+docx:             doc
+gdoc:             doc
+odt:              doc
+
+# Docker
+dockerfile:       docker
+
+# Ebooks
+mobi:             ebook
+
+# Fonts
+eot:              font
+otf:              font
+ttf:              font
+woff:             font
+woff2:            font
+
+# Git
+gitconfig:        git
+gitignore:        git
+gitignore_global: git
+
+# Haskell
+lhs:              hs
+
+# Images
+avif:             image
+bmp:              image
+gif:              image
+heif:             image
+ico:              image
+jpeg:             image
+jpg:              image
+jxl:              image
+odg:              image
+png:              image
+pxm:              image
+svg:              image
+tiff:             image
+webp:             image
+
+# Java
+jar:              java
+
+# JavaScript
+mjs:              js
+
+# JSON
+properties:       json
+
+# JSX/React
+tsx:              jsx
+
+# Markdown
+license:          md
+markdown:         md
+mkd:              md
+rdoc:             md
+readme:           md
+
+# PowerPoint
+gslides:          ppt
+odp:              ppt
+pptx:             ppt
+
+# Python
+ipynb:            py
+pyc:              py
+
+# R
+rdata:            r
+rds:              r
+
+# Ruby
+gemfile:          rb
+gemspec:          rb
+guardfile:        rb
+lock:             rb
+procfile:         rb
+rakefile:         rb
+rspec:            rb
+rspec_parallel:   rb
+rspec_status:     rb
+ru:               rb
+
+# Ruby Documentation
+erb:              rubydoc
+slim:             rubydoc
+
+# Shell scripts
+bash:             shell
+bash_history:     shell
+bash_profile:     shell
+bashrc:           shell
+fish:             shell
+sh:               shell
+zsh:              shell
+zsh-theme:        shell
+zshrc:            shell
+
+# Stylus
+stylus:           styl
+
+# TeX
+cls:              tex
+
+# Video
+avi:              video
+flv:              video
+mkv:              video
+mov:              video
+mp4:              video
+ogv:              video
+webm:             video
+
+# Windows
+bat:              windows
+exe:              windows
+ini:              windows
+
+# Excel/Spreadsheets
+csv:              xls
+gsheet:           xls
+ods:              xls
+xlsx:             xls
+
+# XML
+xul:              xml
+
+# YAML
+yaml:             yml
+
+# Archives
+7z:               zip
+gz:               zip
+rar:              zip
+tar:              zip
+tgz:              zip
+xz:               zip

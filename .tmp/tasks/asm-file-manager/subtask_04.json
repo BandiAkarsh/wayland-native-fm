@@ -1,0 +1,33 @@
+{
+  "id": "asm-file-manager-04",
+  "seq": "04",
+  "title": "Memory: Arena allocator (pointer bump, reset)",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    "~/.config/opencode/context/core/standards/code-quality.md",
+    "~/.config/opencode/context/core/essential-patterns.md",
+    {
+      "path": "~/.config/opencode/context/core/standards/security-patterns.md",
+      "lines": "1-50",
+      "reason": "Memory safety patterns for allocators"
+    }
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "Arena struct defined with base pointer, current pointer, and capacity",
+    "arena_init() allocates backing memory via mmap or brk syscall",
+    "arena_alloc(size, alignment) returns aligned pointer via pointer bump",
+    "arena_alloc() returns NULL when capacity exceeded",
+    "arena_reset() resets current pointer to base without freeing memory",
+    "arena_free() releases backing memory via munmap or brk syscall",
+    "Alignment support for 8-byte and 16-byte boundaries",
+    "Unit test verifies allocation, alignment, reset, and overflow behavior"
+  ],
+  "deliverables": [
+    "src/memory/arena.asm",
+    "src/memory/arena_test.asm"
+  ]
+}

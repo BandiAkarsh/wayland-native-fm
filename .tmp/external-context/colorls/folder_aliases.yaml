@@ -1,0 +1,15 @@
+---
+source: GitHub Repository
+library: colorls
+package: colorls
+topic: folder aliases
+fetched: 2026-05-01T00:00:00Z
+official_docs: https://github.com/athityakumar/colorls
+---
+
+# ColorLS Folder Aliases
+# Maps additional folder names to the main icon categories defined in folders.yaml
+# Format: alias_folder: main_category
+
+bin: config
+include: config
