@@ -25,3 +25,9 @@ impl LocalVfsBackend {
         Self
     }
 }
+
+impl Default for LocalVfsBackend {
+    fn default() -> Self {
+        Self::new()
+    }
+}

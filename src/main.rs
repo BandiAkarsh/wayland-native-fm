@@ -904,10 +904,10 @@ fn main() {
                         let text = entry.text();
                         let new_name = text.trim().to_string();
                         if !new_name.is_empty() {
-                            if let Some(_) = wayland_file_manager::gui::filesystem::rename_file(
+                            if wayland_file_manager::gui::filesystem::rename_file(
                                 &path_for_rename,
                                 &new_name,
-                            ) {
+                            ).is_some() {
                                 let current_path =
                                     tab_data_rename.nav_state.borrow().current_path.clone();
                                 let entries = wayland_file_manager::gui::filesystem::read_directory(

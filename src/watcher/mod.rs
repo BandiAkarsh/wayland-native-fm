@@ -19,6 +19,7 @@ pub enum WatcherEvent {
 }
 
 /// File system watcher
+#[allow(dead_code)]
 pub struct FileWatcher {
     watcher: RecommendedWatcher,
     watched_paths: Arc<Mutex<HashMap<PathBuf, bool>>>,

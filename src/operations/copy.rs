@@ -95,6 +95,7 @@ pub async fn copy_file<P: AsRef<Path>, Q: AsRef<Path>>(
     // Preserve permissions
     #[cfg(unix)]
     {
+        #[allow(unused_imports)]
         use std::os::unix::fs::PermissionsExt;
         if let Ok(metadata) = fs::metadata(src) {
             let permissions = metadata.permissions();

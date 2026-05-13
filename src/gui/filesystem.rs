@@ -196,7 +196,7 @@ pub fn move_to_trash(path: &Path) -> bool {
 
     let file_name = path
         .file_name()
-        .map(|n| PathBuf::from(n))
+        .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("unknown"));
 
     let trash_destination = trash_path.join(&file_name);

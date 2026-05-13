@@ -67,6 +67,7 @@ impl Default for Thumbnail {
 }
 
 /// Thumbnail manager for generating and caching thumbnails
+#[allow(dead_code)]
 pub struct ThumbnailManager {
     cache_dir: PathBuf,
     max_size: usize,

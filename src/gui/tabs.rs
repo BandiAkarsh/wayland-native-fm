@@ -34,7 +34,7 @@ impl AppState {
     }
 
     pub fn get_current_tab(&self) -> Option<TabData> {
-        let current_id = self.current_tab_id.borrow().clone();
+        let current_id = *self.current_tab_id.borrow();
         current_id.and_then(|id| self.tabs.borrow().get(&id).cloned())
     }
 
@@ -88,6 +88,12 @@ impl AppState {
         }
 
         println!("[CLOSE TAB] Tab {:?} closed", tab_id);
+    }
+}
+
+impl Default for AppState {
+    fn default() -> Self {
+        Self::new()
     }
 }
 
@@ -222,7 +228,7 @@ pub fn create_tab(
     tab_label_box.set_spacing(4);
 
     let page_num = notebook.append_page(&content_box, Some(&tab_label_box));
-    notebook.set_current_page(Some(page_num as u32));
+    notebook.set_current_page(Some(page_num));
     notebook.set_tab_reorderable(&content_box, true);
 
     let tab_data = TabData {

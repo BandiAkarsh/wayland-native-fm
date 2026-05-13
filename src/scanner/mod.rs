@@ -9,6 +9,7 @@ use std::time::Duration;
 use walkdir::WalkDir;
 
 /// Scanner for recursive directory traversal
+#[allow(dead_code)]
 pub struct Scanner {
     capacity: usize,
     ttl: Duration,

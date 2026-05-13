@@ -21,7 +21,7 @@ pub fn get_preferred_editor() -> Option<PathBuf> {
         }
     }
     let editors = get_available_editors();
-    editors.first().map(|e| e.clone())
+    editors.first().cloned()
 }
 
 /// Get list of available editors on the system

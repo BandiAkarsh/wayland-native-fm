@@ -3,8 +3,8 @@
 use std::time::Duration;
 
 /// Directory cache stub
+#[allow(dead_code)]
 pub struct SharedDirectoryCache {
-    #[allow(dead_code)]
     ttl: Duration,
 }
 

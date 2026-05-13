@@ -10,6 +10,7 @@ use std::path::PathBuf;
 use std::rc::Rc;
 
 /// Build list view with clickable rows
+#[allow(clippy::too_many_arguments, clippy::ptr_arg)]
 pub fn build_list_view(
     entries: &[FileEntry],
     show_hidden: bool,
@@ -200,6 +201,7 @@ pub fn build_list_view(
 }
 
 /// Build icon view with FlowBox (like GNOME Files/Nautilus)
+#[allow(clippy::too_many_arguments, clippy::ptr_arg)]
 pub fn build_icon_view(
     entries: &[FileEntry],
     show_hidden: bool,
