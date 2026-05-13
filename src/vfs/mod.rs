@@ -1,8 +1,8 @@
 //! Virtual File System (VFS) abstraction module
 
-pub mod entry;
 pub mod backend;
+pub mod entry;
 
-pub use entry::DirectoryEntry;
-pub use backend::VfsBackend;
 pub use backend::LocalVfsBackend;
+pub use backend::VfsBackend;
+pub use entry::DirectoryEntry;

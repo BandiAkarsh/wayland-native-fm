@@ -1,7 +1,7 @@
 //! File delete operations
 
+use crate::operations::{DeleteOptions, ProgressTracker, Result};
 use std::path::Path;
-use crate::operations::{Result, DeleteOptions, ProgressTracker};
 
 /// Delete a file
 pub async fn delete_file(

@@ -4,8 +4,8 @@ use notify::{Config, Event, RecommendedWatcher, RecursiveMode, Watcher as Notify
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::sync::mpsc::{channel, Sender};
-use std::time::Duration;
 use std::sync::{Arc, Mutex};
+use std::time::Duration;
 
 use crate::error::FileManagerError;
 
@@ -33,31 +33,23 @@ impl FileWatcher {
         let sender_clone = event_sender.clone();
 
         let watcher = RecommendedWatcher::new(
-            move |result: Result<Event, notify::Error>| {
-                match result {
-                    Ok(event) => {
-                        for path in event.paths {
-                            let watcher_event = match event.kind {
-                                notify::EventKind::Create(_) => {
-                                    WatcherEvent::Created(path.clone())
-                                }
-                                notify::EventKind::Modify(_) => {
-                                    WatcherEvent::Modified(path.clone())
-                                }
-                                notify::EventKind::Remove(_) => {
-                                    WatcherEvent::Deleted(path.clone())
-                                }
-                                _ => continue,
-                            };
-                            
-                            if let Err(e) = sender_clone.send(watcher_event) {
-                                tracing::error!("Failed to send watcher event: {}", e);
-                            }
+            move |result: Result<Event, notify::Error>| match result {
+                Ok(event) => {
+                    for path in event.paths {
+                        let watcher_event = match event.kind {
+                            notify::EventKind::Create(_) => WatcherEvent::Created(path.clone()),
+                            notify::EventKind::Modify(_) => WatcherEvent::Modified(path.clone()),
+                            notify::EventKind::Remove(_) => WatcherEvent::Deleted(path.clone()),
+                            _ => continue,
+                        };
+
+                        if let Err(e) = sender_clone.send(watcher_event) {
+                            tracing::error!("Failed to send watcher event: {}", e);
                         }
                     }
-                    Err(e) => {
-                        tracing::error!("Watch error: {:?}", e);
-                    }
+                }
+                Err(e) => {
+                    tracing::error!("Watch error: {:?}", e);
                 }
             },
             Config::default().with_poll_interval(duration),
@@ -74,7 +66,7 @@ impl FileWatcher {
     /// Watch a path
     pub fn watch<P: AsRef<Path>>(&mut self, path: P) -> Result<(), FileManagerError> {
         let path = path.as_ref().to_path_buf();
-        
+
         if !path.exists() {
             return Err(FileManagerError::NotFound(path.display().to_string()));
         }
@@ -95,13 +87,13 @@ impl FileWatcher {
     /// Unwatch a path
     pub fn unwatch<P: AsRef<Path>>(&mut self, path: P) -> Result<(), FileManagerError> {
         let path = path.as_ref().to_path_buf();
-        
+
         self.watcher
             .unwatch(&path)
             .map_err(|e| FileManagerError::Watcher(e.to_string()))?;
 
         self.watched_paths.lock().unwrap().remove(&path);
-        
+
         tracing::info!("Stopped watching: {}", path.display());
         Ok(())
     }

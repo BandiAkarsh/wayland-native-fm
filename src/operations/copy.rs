@@ -60,27 +60,33 @@ pub async fn copy_file<P: AsRef<Path>, Q: AsRef<Path>>(
     // Get file size for progress
     let metadata = fs::metadata(src)?;
     let total_size = metadata.len();
-    
-    tracing::info!("Copying {} -> {} ({} bytes)", src.display(), dst.display(), total_size);
+
+    tracing::info!(
+        "Copying {} -> {} ({} bytes)",
+        src.display(),
+        dst.display(),
+        total_size
+    );
 
     // Copy file
     let mut source = fs::File::open(src)?;
     let mut dest = fs::File::create(dst)?;
-    
+
     let mut buffer = vec![0u8; options.buffer_size];
     let mut copied: u64 = 0;
-    
+
     loop {
         let bytes_read = source.read(&mut buffer)?;
         if bytes_read == 0 {
             break;
         }
-        
+
         dest.write_all(&buffer[..bytes_read])?;
         copied += bytes_read as u64;
-        
+
         // Progress could be reported here via callback
-        if copied % (1024 * 1024) == 0 { // Log every MB
+        if copied % (1024 * 1024) == 0 {
+            // Log every MB
             let progress = (copied as f64 / total_size as f64 * 100.0) as u32;
             tracing::debug!("Copy progress: {}%", progress);
         }
@@ -160,7 +166,7 @@ pub async fn copy_file_async<P: AsRef<Path>, Q: AsRef<Path>>(
 ) -> Result<u64, FileManagerError> {
     use tokio::io::AsyncReadExt;
     use tokio::io::AsyncWriteExt;
-    
+
     let src = src.as_ref();
     let dst = dst.as_ref();
 
@@ -176,18 +182,18 @@ pub async fn copy_file_async<P: AsRef<Path>, Q: AsRef<Path>>(
     // Copy using tokio
     let mut src_file = tokio::fs::File::open(src).await?;
     let _total_size = src_file.metadata().await?.len();
-    
+
     let mut dst_file = tokio::fs::File::create(dst).await?;
-    
+
     let mut buffer = vec![0u8; 64 * 1024];
     let mut copied: u64 = 0;
-    
+
     loop {
         let bytes_read = src_file.read(&mut buffer).await?;
         if bytes_read == 0 {
             break;
         }
-        
+
         dst_file.write_all(&buffer[..bytes_read]).await?;
         copied += bytes_read as u64;
     }
@@ -205,13 +211,13 @@ mod tests {
         let temp_dir = TempDir::new().unwrap();
         let src = temp_dir.path().join("source.txt");
         let dst = temp_dir.path().join("dest.txt");
-        
+
         // Create source file
         std::fs::write(&src, "Hello, World!").unwrap();
-        
+
         let options = CopyOptions::new();
         let result = copy_file(&src, &dst, options).await;
-        
+
         assert!(result.is_ok());
         assert!(dst.exists());
         assert_eq!(std::fs::read_to_string(&dst).unwrap(), "Hello, World!");

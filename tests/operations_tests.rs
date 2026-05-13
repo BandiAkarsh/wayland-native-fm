@@ -2,8 +2,8 @@
 
 #[cfg(test)]
 mod tests {
-    use wayland_file_manager::operations::copy::CopyOptions;
     use tempfile::TempDir;
+    use wayland_file_manager::operations::copy::CopyOptions;
 
     #[test]
     fn test_copy_options_default() {
@@ -17,7 +17,7 @@ mod tests {
         let options = CopyOptions::new()
             .with_overwrite(true)
             .with_buffer_size(128 * 1024);
-        
+
         assert!(options.overwrite);
         assert_eq!(options.buffer_size, 128 * 1024);
     }
@@ -39,13 +39,13 @@ mod tests {
         let temp_dir = TempDir::new().unwrap();
         let src = temp_dir.path().join("source.txt");
         let dst = temp_dir.path().join("dest.txt");
-        
+
         // Create source file
         std::fs::write(&src, "Hello, World!").unwrap();
-        
+
         let options = CopyOptions::new();
         let result = wayland_file_manager::operations::copy::copy_file(&src, &dst, options).await;
-        
+
         assert!(result.is_ok());
         assert!(dst.exists());
         assert_eq!(std::fs::read_to_string(&dst).unwrap(), "Hello, World!");
@@ -56,15 +56,15 @@ mod tests {
         let temp_dir = TempDir::new().unwrap();
         let src = temp_dir.path().join("source.txt");
         let dst = temp_dir.path().join("dest.txt");
-        
+
         // Create source file
         std::fs::write(&src, "New content").unwrap();
         // Create destination file
         std::fs::write(&dst, "Old content").unwrap();
-        
+
         let options = CopyOptions::new().with_overwrite(true);
         let result = wayland_file_manager::operations::copy::copy_file(&src, &dst, options).await;
-        
+
         assert!(result.is_ok());
         assert_eq!(std::fs::read_to_string(&dst).unwrap(), "New content");
     }
@@ -74,15 +74,15 @@ mod tests {
         let temp_dir = TempDir::new().unwrap();
         let src = temp_dir.path().join("source.txt");
         let dst = temp_dir.path().join("dest.txt");
-        
+
         // Create source file
         std::fs::write(&src, "New content").unwrap();
         // Create destination file
         std::fs::write(&dst, "Old content").unwrap();
-        
+
         let options = CopyOptions::new(); // overwrite = false
         let result = wayland_file_manager::operations::copy::copy_file(&src, &dst, options).await;
-        
+
         // Should fail because destination exists and overwrite is false
         assert!(result.is_err());
     }

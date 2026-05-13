@@ -3,8 +3,8 @@
 
 use gtk4::prelude::*;
 use gtk4::{
-    Application, ApplicationWindow, Box, Button, ComboBoxText, Dialog, Entry, Label,
-    Notebook, Orientation, ScrolledWindow, ToggleButton,
+    Application, ApplicationWindow, Box, Button, ComboBoxText, Dialog, Entry, Label, Notebook,
+    Orientation, ScrolledWindow, ToggleButton,
 };
 use std::path::PathBuf;
 use std::rc::Rc;
@@ -49,23 +49,26 @@ fn main() {
         places_lbl.set_margin_bottom(12);
         sidebar.append(&places_lbl);
 
-        let make_place =
-            |label_text: &str, target: PathBuf, app_state: Rc<AppState>, editor: PathBuf| -> Button {
-                let btn = Button::new();
-                btn.set_label(label_text);
-                btn.set_halign(gtk4::Align::Start);
-                btn.set_margin_start(8);
-                btn.set_margin_end(8);
-                btn.set_margin_bottom(4);
+        let make_place = |label_text: &str,
+                          target: PathBuf,
+                          app_state: Rc<AppState>,
+                          editor: PathBuf|
+         -> Button {
+            let btn = Button::new();
+            btn.set_label(label_text);
+            btn.set_halign(gtk4::Align::Start);
+            btn.set_margin_start(8);
+            btn.set_margin_end(8);
+            btn.set_margin_bottom(4);
 
-                let app_state_clone = app_state.clone();
-                let editor_clone = editor.clone();
+            let app_state_clone = app_state.clone();
+            let editor_clone = editor.clone();
 
-                btn.connect_clicked(move |_| {
-                    app_state_clone.navigate_current_tab(&editor_clone, target.clone());
-                });
-                btn
-            };
+            btn.connect_clicked(move |_| {
+                app_state_clone.navigate_current_tab(&editor_clone, target.clone());
+            });
+            btn
+        };
 
         let app_state_clone = app_state.clone();
         let editor_clone = editor.clone();
@@ -78,22 +81,52 @@ fn main() {
         ));
 
         if let Some(d) = dirs::desktop_dir() {
-            sidebar.append(&make_place("🖥️  Desktop", d, app_state_clone.clone(), editor_clone.clone()));
+            sidebar.append(&make_place(
+                "🖥️  Desktop",
+                d,
+                app_state_clone.clone(),
+                editor_clone.clone(),
+            ));
         }
         if let Some(d) = dirs::document_dir() {
-            sidebar.append(&make_place("📄  Documents", d, app_state_clone.clone(), editor_clone.clone()));
+            sidebar.append(&make_place(
+                "📄  Documents",
+                d,
+                app_state_clone.clone(),
+                editor_clone.clone(),
+            ));
         }
         if let Some(d) = dirs::download_dir() {
-            sidebar.append(&make_place("📥  Downloads", d, app_state_clone.clone(), editor_clone.clone()));
+            sidebar.append(&make_place(
+                "📥  Downloads",
+                d,
+                app_state_clone.clone(),
+                editor_clone.clone(),
+            ));
         }
         if let Some(d) = dirs::audio_dir() {
-            sidebar.append(&make_place("🎵  Music", d, app_state_clone.clone(), editor_clone.clone()));
+            sidebar.append(&make_place(
+                "🎵  Music",
+                d,
+                app_state_clone.clone(),
+                editor_clone.clone(),
+            ));
         }
         if let Some(d) = dirs::picture_dir() {
-            sidebar.append(&make_place("🖼️  Pictures", d, app_state_clone.clone(), editor_clone.clone()));
+            sidebar.append(&make_place(
+                "🖼️  Pictures",
+                d,
+                app_state_clone.clone(),
+                editor_clone.clone(),
+            ));
         }
         if let Some(d) = dirs::video_dir() {
-            sidebar.append(&make_place("🎬  Videos", d, app_state_clone.clone(), editor_clone.clone()));
+            sidebar.append(&make_place(
+                "🎬  Videos",
+                d,
+                app_state_clone.clone(),
+                editor_clone.clone(),
+            ));
         }
 
         // ===== MOUNTED DRIVES / USB =====
@@ -345,7 +378,8 @@ fn main() {
                     for path in &selected_open {
                         if path.is_dir() {
                             if let Some(tab) = app_open.get_current_tab() {
-                                let entries = wayland_file_manager::gui::filesystem::read_directory(path);
+                                let entries =
+                                    wayland_file_manager::gui::filesystem::read_directory(path);
                                 tab.entries_store.replace(entries.clone());
                                 tab.nav_state.borrow_mut().current_path = path.clone();
                                 tab.nav_state.borrow_mut().history.push(path.clone());
@@ -410,16 +444,19 @@ fn main() {
                         let name_lbl = Label::new(Some(&format!("Name: {}", name)));
                         vbox2.append(&name_lbl);
 
-                        let type_lbl =
-                            Label::new(Some(&format!("Type: {}", if is_dir { "Folder" } else { "File" })));
+                        let type_lbl = Label::new(Some(&format!(
+                            "Type: {}",
+                            if is_dir { "Folder" } else { "File" }
+                        )));
                         vbox2.append(&type_lbl);
 
                         let size_lbl = Label::new(Some(&format!("Size: {} bytes", size)));
                         vbox2.append(&size_lbl);
 
                         if let Some(time) = modified {
-                            let datetime =
-                                chrono::DateTime::<chrono::Local>::from(time).format("%Y-%m-%d %H:%M:%S").to_string();
+                            let datetime = chrono::DateTime::<chrono::Local>::from(time)
+                                .format("%Y-%m-%d %H:%M:%S")
+                                .to_string();
                             let mod_lbl = Label::new(Some(&format!("Modified: {}", datetime)));
                             vbox2.append(&mod_lbl);
                         }
@@ -603,7 +640,11 @@ fn main() {
                     tab_data.search_entry.set_text("");
 
                     refresh_tab_view(&tab_data, &editor_back);
-                    println!("[BACK] {} -> {}", current_target.display(), target.display());
+                    println!(
+                        "[BACK] {} -> {}",
+                        current_target.display(),
+                        target.display()
+                    );
                 }
             }
         });
@@ -641,7 +682,11 @@ fn main() {
                     tab_data.search_entry.set_text("");
 
                     refresh_tab_view(&tab_data, &editor_fwd);
-                    println!("[FORWARD] {} -> {}", current_target.display(), target.display());
+                    println!(
+                        "[FORWARD] {} -> {}",
+                        current_target.display(),
+                        target.display()
+                    );
                 }
             }
         });
@@ -708,7 +753,9 @@ fn main() {
                         if std::fs::create_dir(&folder_path).is_ok() {
                             println!("[NEW FOLDER] {}", folder_path.display());
 
-                            let entries = wayland_file_manager::gui::filesystem::read_directory(&current_path);
+                            let entries = wayland_file_manager::gui::filesystem::read_directory(
+                                &current_path,
+                            );
                             tab_data.entries_store.replace(entries.clone());
 
                             refresh_tab_view(&tab_data, &editor_new);
@@ -741,7 +788,11 @@ fn main() {
                     "[DELETE] Selected: {:?}",
                     selected
                         .iter()
-                        .map(|p| p.file_name().unwrap_or_default().to_string_lossy().to_string())
+                        .map(|p| p
+                            .file_name()
+                            .unwrap_or_default()
+                            .to_string_lossy()
+                            .to_string())
                         .collect::<Vec<_>>()
                 );
 
@@ -777,8 +828,11 @@ fn main() {
 
                     delete_yes_btn.connect_clicked(move |_| {
                         if wayland_file_manager::gui::filesystem::move_to_trash(&path_for_delete) {
-                            let current_path = tab_data_delete.nav_state.borrow().current_path.clone();
-                            let entries = wayland_file_manager::gui::filesystem::read_directory(&current_path);
+                            let current_path =
+                                tab_data_delete.nav_state.borrow().current_path.clone();
+                            let entries = wayland_file_manager::gui::filesystem::read_directory(
+                                &current_path,
+                            );
                             tab_data_delete.entries_store.replace(entries.clone());
                             tab_data_delete.nav_state.borrow_mut().selected_paths = vec![];
                             refresh_tab_view(&tab_data_delete, &editor_del);
@@ -850,9 +904,15 @@ fn main() {
                         let text = entry.text();
                         let new_name = text.trim().to_string();
                         if !new_name.is_empty() {
-                            if let Some(_) = wayland_file_manager::gui::filesystem::rename_file(&path_for_rename, &new_name) {
-                                let current_path = tab_data_rename.nav_state.borrow().current_path.clone();
-                                let entries = wayland_file_manager::gui::filesystem::read_directory(&current_path);
+                            if let Some(_) = wayland_file_manager::gui::filesystem::rename_file(
+                                &path_for_rename,
+                                &new_name,
+                            ) {
+                                let current_path =
+                                    tab_data_rename.nav_state.borrow().current_path.clone();
+                                let entries = wayland_file_manager::gui::filesystem::read_directory(
+                                    &current_path,
+                                );
                                 tab_data_rename.entries_store.replace(entries.clone());
                                 tab_data_rename.nav_state.borrow_mut().selected_paths = vec![];
                                 refresh_tab_view(&tab_data_rename, &editor_ren);
@@ -991,7 +1051,11 @@ fn main() {
                 tab_data.search_entry.set_text("");
 
                 view_toggle_switch.set_active(view_mode == ViewMode::Icon);
-                view_toggle_switch.set_label(if view_mode == ViewMode::Icon { "▦" } else { "☰" });
+                view_toggle_switch.set_label(if view_mode == ViewMode::Icon {
+                    "▦"
+                } else {
+                    "☰"
+                });
                 hidden_toggle_switch.set_active(show_hidden);
 
                 match sort_by {

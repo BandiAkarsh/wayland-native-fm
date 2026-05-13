@@ -1,8 +1,8 @@
 //! File operations module
 
 pub mod copy;
-pub mod move_;
 pub mod delete;
+pub mod move_;
 
 pub use self::copy::*;
 pub use self::delete::*;

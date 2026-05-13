@@ -1,10 +1,10 @@
 //! GUI types and data structures
 
+use gtk4::{Box, Entry, Label, ScrolledWindow};
 use std::cell::RefCell;
 use std::path::PathBuf;
 use std::rc::Rc;
 use std::time::SystemTime;
-use gtk4::{Box, Entry, Label, ScrolledWindow};
 
 /// Unique tab identifier
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]

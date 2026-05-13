@@ -2,8 +2,8 @@
 
 #[cfg(test)]
 mod tests {
-    use wayland_file_manager::scanner::Scanner;
     use std::time::Duration;
+    use wayland_file_manager::scanner::Scanner;
 
     #[test]
     fn test_scanner_creation() {

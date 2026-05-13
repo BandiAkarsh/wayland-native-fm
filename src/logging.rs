@@ -3,8 +3,8 @@
 use std::path::PathBuf;
 use std::sync::OnceLock;
 use tracing_appender::non_blocking::WorkerGuard;
-use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};
+use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
 
 /// Static storage for the non-blocking guard
 /// This prevents the guard from being dropped while the program is running
@@ -14,16 +14,13 @@ static LOG_GUARD: OnceLock<WorkerGuard> = OnceLock::new();
 pub fn init() -> Result<(), Box<dyn std::error::Error>> {
     // Get log directory
     let log_dir = get_log_directory();
-    
+
     // Create log directory if it doesn't exist
     std::fs::create_dir_all(&log_dir)?;
 
     // Create file appender with daily rotation
-    let file_appender = RollingFileAppender::new(
-        Rotation::DAILY,
-        &log_dir,
-        "wayland-file-manager.log",
-    );
+    let file_appender =
+        RollingFileAppender::new(Rotation::DAILY, &log_dir, "wayland-file-manager.log");
 
     // Create non-blocking writer
     let (non_blocking, guard) = tracing_appender::non_blocking(file_appender);
@@ -46,7 +43,7 @@ pub fn init() -> Result<(), Box<dyn std::error::Error>> {
                 .with_target(true)
                 .with_thread_ids(true)
                 .with_file(true)
-                .with_line_number(true)
+                .with_line_number(true),
         )
         .with(
             tracing_subscriber::fmt::layer()
@@ -55,7 +52,7 @@ pub fn init() -> Result<(), Box<dyn std::error::Error>> {
                 .with_target(true)
                 .with_thread_ids(true)
                 .with_file(true)
-                .with_line_number(true)
+                .with_line_number(true),
         )
         .init();
 
@@ -68,7 +65,9 @@ pub fn init() -> Result<(), Box<dyn std::error::Error>> {
 fn get_log_directory() -> PathBuf {
     // Check XDG_DATA_HOME first
     if let Ok(data_home) = std::env::var("XDG_DATA_HOME") {
-        return PathBuf::from(data_home).join("wayland-file-manager").join("logs");
+        return PathBuf::from(data_home)
+            .join("wayland-file-manager")
+            .join("logs");
     }
 
     // Fall back to ~/.local/share
@@ -81,7 +80,9 @@ fn get_log_directory() -> PathBuf {
     }
 
     // Last resort: /tmp
-    PathBuf::from("/tmp").join("wayland-file-manager").join("logs")
+    PathBuf::from("/tmp")
+        .join("wayland-file-manager")
+        .join("logs")
 }
 
 /// Get the current log file path

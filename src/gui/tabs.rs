@@ -126,7 +126,12 @@ pub fn navigate_to_path(
 
     let (view_mode, show_hidden, search, sort_by) = {
         let s = nav_state.borrow();
-        (s.view_mode, s.show_hidden, s.search_query.clone(), s.sort_by)
+        (
+            s.view_mode,
+            s.show_hidden,
+            s.search_query.clone(),
+            s.sort_by,
+        )
     };
 
     let file_box = match view_mode {

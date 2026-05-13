@@ -89,10 +89,7 @@ pub fn build_list_view(
         } else if entry.size < 1024 * 1024 * 1024 {
             format!("{:.1} MB", entry.size as f64 / (1024.0 * 1024.0))
         } else {
-            format!(
-                "{:.1} GB",
-                entry.size as f64 / (1024.0 * 1024.0 * 1024.0)
-            )
+            format!("{:.1} GB", entry.size as f64 / (1024.0 * 1024.0 * 1024.0))
         };
         let size_lbl = Label::new(Some(&size_str));
         size_lbl.set_width_request(80);
@@ -155,7 +152,12 @@ pub fn build_list_view(
                 // Get view settings
                 let (view_mode, show_hidden, search, sort_by) = {
                     let s = state_clone.borrow();
-                    (s.view_mode, s.show_hidden, s.search_query.clone(), s.sort_by)
+                    (
+                        s.view_mode,
+                        s.show_hidden,
+                        s.search_query.clone(),
+                        s.sort_by,
+                    )
                 };
 
                 // Refresh the view
@@ -215,7 +217,11 @@ pub fn build_icon_view(
         label.set_label(&current_path.display().to_string());
     }
 
-    println!("[GRID VIEW] {} ({} entries)", current_path.display(), entries.len());
+    println!(
+        "[GRID VIEW] {} ({} entries)",
+        current_path.display(),
+        entries.len()
+    );
 
     let container = Box::new(Orientation::Vertical, 0);
     container.set_vexpand(true);
@@ -257,7 +263,11 @@ pub fn build_icon_view(
             vbox.set_margin_bottom(4);
 
             // Use GTK themed icons
-            let icon_name = if is_dir { "folder-symbolic" } else { "text-x-generic" };
+            let icon_name = if is_dir {
+                "folder-symbolic"
+            } else {
+                "text-x-generic"
+            };
             let icon_img = Image::from_icon_name(icon_name);
             icon_img.set_pixel_size(32);
             icon_img.set_margin_bottom(2);
@@ -334,7 +344,12 @@ pub fn build_icon_view(
 
                     let (view_mode, show_hidden, search, sort_by) = {
                         let s = state_clone.borrow();
-                        (s.view_mode, s.show_hidden, s.search_query.clone(), s.sort_by)
+                        (
+                            s.view_mode,
+                            s.show_hidden,
+                            s.search_query.clone(),
+                            s.sort_by,
+                        )
                     };
 
                     let file_box = match view_mode {
@@ -416,7 +431,9 @@ pub fn refresh_tab_view(tab_data: &crate::gui::types::TabData, editor: &PathBuf)
     };
 
     tab_data.file_scrolled.set_child(Some(&file_box));
-    tab_data.path_label.set_label(&current_path.display().to_string());
+    tab_data
+        .path_label
+        .set_label(&current_path.display().to_string());
 
     println!("[REFRESH] {}", current_path.display());
 }

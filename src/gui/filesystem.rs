@@ -96,9 +96,7 @@ fn get_file_info_vfs(path: &Path) -> Option<FileEntry> {
             let modified = entry
                 .metadata
                 .modified_at
-                .map(|ts| {
-                    SystemTime::UNIX_EPOCH + std::time::Duration::from_secs(ts)
-                })
+                .map(|ts| SystemTime::UNIX_EPOCH + std::time::Duration::from_secs(ts))
                 .unwrap_or(SystemTime::UNIX_EPOCH);
             let extension = path
                 .extension()

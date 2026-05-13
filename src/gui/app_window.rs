@@ -7,9 +7,9 @@ static CURRENT_DIR: Mutex<Option<PathBuf>> = Mutex::new(None);
 
 pub fn get_current_dir() -> PathBuf {
     if let Ok(guard) = CURRENT_DIR.lock() {
-        guard.clone().unwrap_or_else(|| {
-            dirs::home_dir().unwrap_or_else(|| PathBuf::from("/home"))
-        })
+        guard
+            .clone()
+            .unwrap_or_else(|| dirs::home_dir().unwrap_or_else(|| PathBuf::from("/home")))
     } else {
         PathBuf::from("/home")
     }

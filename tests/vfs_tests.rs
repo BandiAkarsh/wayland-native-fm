@@ -17,7 +17,7 @@ mod tests {
             is_dir: false,
             is_symlink: false,
         };
-        
+
         assert_eq!(metadata.size, 1024);
         assert!(metadata.is_file);
         assert!(!metadata.is_dir);
@@ -32,13 +32,13 @@ mod tests {
             is_dir: true,
             is_symlink: false,
         };
-        
+
         let entry = DirectoryEntry {
             path: PathBuf::from("/test"),
             name: "test".to_string(),
             metadata,
         };
-        
+
         assert_eq!(entry.name, "test");
         assert!(entry.metadata.is_dir);
     }
@@ -65,7 +65,7 @@ mod tests {
         };
         assert!(file_meta.is_file);
         assert!(!file_meta.is_dir);
-        
+
         let dir_meta = EntryMetadata {
             size: 0,
             modified_at: Some(1000000),

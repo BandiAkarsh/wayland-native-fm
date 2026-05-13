@@ -2,9 +2,9 @@
 
 #[cfg(test)]
 mod tests {
-    use wayland_file_manager::watcher::{FileWatcher, WatcherEvent};
-    use std::time::Duration;
     use std::path::PathBuf;
+    use std::time::Duration;
+    use wayland_file_manager::watcher::{FileWatcher, WatcherEvent};
 
     #[test]
     fn test_watcher_creation() {
@@ -42,7 +42,8 @@ mod tests {
     #[test]
     fn test_watcher_type_alias() {
         // Test that the Watcher type alias works
-        let _watcher: wayland_file_manager::watcher::Watcher = FileWatcher::new(Duration::from_secs(1)).unwrap();
+        let _watcher: wayland_file_manager::watcher::Watcher =
+            FileWatcher::new(Duration::from_secs(1)).unwrap();
         assert!(true);
     }
 }

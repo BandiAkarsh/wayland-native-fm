@@ -1,13 +1,13 @@
 //! Wayland File Manager Library
 
-pub mod logging;
 pub mod error;
-pub mod vfs;
+pub mod gui;
+pub mod logging;
 pub mod operations;
 pub mod scanner;
-pub mod watcher;
-pub mod gui;
 pub mod thumbnails;
+pub mod vfs;
+pub mod watcher;
 
 #[cfg(test)]
 mod tests {

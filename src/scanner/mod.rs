@@ -25,9 +25,12 @@ impl Scanner {
     }
 
     /// Scan a directory recursively and return all entries
-    pub fn scan_recursive<P: AsRef<Path>>(&self, path: P) -> Result<Vec<DirectoryEntry>, FileManagerError> {
+    pub fn scan_recursive<P: AsRef<Path>>(
+        &self,
+        path: P,
+    ) -> Result<Vec<DirectoryEntry>, FileManagerError> {
         let path = path.as_ref();
-        
+
         if !path.exists() {
             return Err(FileManagerError::NotFound(path.display().to_string()));
         }
@@ -37,7 +40,7 @@ impl Scanner {
         }
 
         let mut entries = Vec::new();
-        
+
         for entry in WalkDir::new(path)
             .follow_links(false)
             .into_iter()
@@ -63,7 +66,7 @@ impl Scanner {
     /// Scan a single directory (non-recursive)
     pub fn scan<P: AsRef<Path>>(&self, path: P) -> Result<Vec<DirectoryEntry>, FileManagerError> {
         let path = path.as_ref();
-        
+
         if !path.exists() {
             return Err(FileManagerError::NotFound(path.display().to_string()));
         }
@@ -73,7 +76,7 @@ impl Scanner {
         }
 
         let mut entries = Vec::new();
-        
+
         for entry in std::fs::read_dir(path)? {
             let entry = match entry {
                 Ok(e) => e,
@@ -105,9 +108,16 @@ mod tests {
     fn test_scan_home_directory() {
         let scanner = Scanner::new(1000, Duration::from_secs(300), 100);
         let home = env::var("HOME").unwrap_or_else(|_| "/home".to_string());
-        
+
         // Just test that it doesn't panic
         let result = scanner.scan(&home);
-        assert!(result.is_ok() || result.err().map(|e| e.to_string()).unwrap_or_default().contains("not found"));
+        assert!(
+            result.is_ok()
+                || result
+                    .err()
+                    .map(|e| e.to_string())
+                    .unwrap_or_default()
+                    .contains("not found")
+        );
     }
 }

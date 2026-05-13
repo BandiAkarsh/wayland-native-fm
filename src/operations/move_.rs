@@ -1,7 +1,7 @@
 //! File move operations
 
+use crate::operations::{CopyOptions, ProgressTracker, Result};
 use std::path::Path;
-use crate::operations::{Result, CopyOptions, ProgressTracker};
 
 /// Move a file or directory
 pub async fn move_file(

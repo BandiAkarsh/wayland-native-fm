@@ -27,7 +27,8 @@ pub fn get_preferred_editor() -> Option<PathBuf> {
 /// Get list of available editors on the system
 pub fn get_available_editors() -> Vec<PathBuf> {
     let editor_names = [
-        "code", "cursor", "vscode", "gedit", "kate", "nvim", "vim", "nano", "emacs", "geany", "pluma",
+        "code", "cursor", "vscode", "gedit", "kate", "nvim", "vim", "nano", "emacs", "geany",
+        "pluma",
     ];
     let mut editors = Vec::new();
     for e in &editor_names {

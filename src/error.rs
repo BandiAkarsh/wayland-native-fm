@@ -61,7 +61,9 @@ pub type Result<T> = std::result::Result<T, FileManagerError>;
 pub fn io_error(error: std::io::Error, context: &str) -> FileManagerError {
     match error.kind() {
         std::io::ErrorKind::NotFound => FileManagerError::NotFound(context.to_string()),
-        std::io::ErrorKind::PermissionDenied => FileManagerError::PermissionDenied(context.to_string()),
+        std::io::ErrorKind::PermissionDenied => {
+            FileManagerError::PermissionDenied(context.to_string())
+        }
         std::io::ErrorKind::AlreadyExists => FileManagerError::AlreadyExists(context.to_string()),
         std::io::ErrorKind::NotADirectory => FileManagerError::NotDirectory(context.to_string()),
         std::io::ErrorKind::IsADirectory => FileManagerError::NotFile(context.to_string()),

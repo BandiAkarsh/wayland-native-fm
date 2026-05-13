@@ -103,9 +103,7 @@ impl DirectoryEntry {
                         _ => components.push(component),
                     }
                 }
-                let normalized = components
-                    .into_iter()
-                    .collect::<PathBuf>();
+                let normalized = components.into_iter().collect::<PathBuf>();
                 Ok(normalized)
             }
         }

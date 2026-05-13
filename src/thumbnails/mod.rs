@@ -92,7 +92,10 @@ impl ThumbnailManager {
     }
 
     /// Generate a thumbnail from an image file
-    pub fn generate_thumbnail<P: AsRef<Path>>(&self, path: P) -> Result<Thumbnail, FileManagerError> {
+    pub fn generate_thumbnail<P: AsRef<Path>>(
+        &self,
+        path: P,
+    ) -> Result<Thumbnail, FileManagerError> {
         let path = path.as_ref();
 
         if !path.exists() {
@@ -104,10 +107,13 @@ impl ThumbnailManager {
             .extension()
             .and_then(|e| e.to_str())
             .unwrap_or_default();
-        
+
         let format = ImageFormat::from_extension(extension);
         if format == ImageFormat::Unknown {
-            return Err(FileManagerError::Operation(format!("Unsupported image format: {}", extension)));
+            return Err(FileManagerError::Operation(format!(
+                "Unsupported image format: {}",
+                extension
+            )));
         }
 
         // Load image
@@ -122,7 +128,7 @@ impl ThumbnailManager {
         // Encode to PNG
         let mut buffer = Vec::new();
         let mut cursor = std::io::Cursor::new(&mut buffer);
-        
+
         thumbnail
             .write_to(&mut cursor, image::ImageFormat::Png)
             .map_err(|e| FileManagerError::Operation(e.to_string()))?;
@@ -148,11 +154,11 @@ impl ThumbnailManager {
         // Use a hash of the file path as the cache key
         use std::collections::hash_map::DefaultHasher;
         use std::hash::{Hash, Hasher};
-        
+
         let mut hasher = DefaultHasher::new();
         path.hash(&mut hasher);
         let hash = hasher.finish();
-        
+
         self.cache_dir.join(format!("{:x}.png", hash))
     }
 
@@ -171,7 +177,7 @@ impl ThumbnailManager {
                 let age = std::time::SystemTime::now()
                     .duration_since(modified)
                     .unwrap_or_default();
-                
+
                 // Duration doesn't have as_hours, check in seconds
                 if age.as_secs() > 24 * 3600 {
                     return None;
@@ -180,18 +186,20 @@ impl ThumbnailManager {
         }
 
         // Load cached thumbnail
-        std::fs::read(&cache_path)
-            .ok()
-            .map(|data| Thumbnail {
-                data,
-                format: ImageFormat::Png,
-                width: THUMBNAIL_SIZE,
-                height: THUMBNAIL_SIZE,
-            })
+        std::fs::read(&cache_path).ok().map(|data| Thumbnail {
+            data,
+            format: ImageFormat::Png,
+            width: THUMBNAIL_SIZE,
+            height: THUMBNAIL_SIZE,
+        })
     }
 
     /// Save thumbnail to cache
-    pub fn cache_thumbnail<P: AsRef<Path>>(&self, path: P, thumbnail: &Thumbnail) -> Result<(), FileManagerError> {
+    pub fn cache_thumbnail<P: AsRef<Path>>(
+        &self,
+        path: P,
+        thumbnail: &Thumbnail,
+    ) -> Result<(), FileManagerError> {
         let path = path.as_ref();
         let cache_path = self.get_cache_path(path);
 
